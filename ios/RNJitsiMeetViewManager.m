@@ -18,6 +18,16 @@ RCT_EXPORT_VIEW_PROPERTY(onEnteredPip, RCTBubblingEventBlock)
   return jitsiMeetView;
 }
 
+- (BOOL)canUseCallKit
+{
+    NSLocale *userLocale = [NSLocale currentLocale];
+    if (@available(iOS 10.0, *)) {
+        return !([userLocale.countryCode containsString: @"CN"] || [userLocale.countryCode containsString: @"CHN"]);
+    } else {
+        return NO;
+    }
+}
+
 RCT_EXPORT_METHOD(initialize)
 {
     RCTLogInfo(@"Initialize is deprecated in v2");
@@ -25,6 +35,7 @@ RCT_EXPORT_METHOD(initialize)
 
 RCT_EXPORT_METHOD(call:(NSString *)urlString)
 {
+    JMCallKitProxy.enabled = [self canUseCallKit];
     RCTLogInfo(@"Load URL %@", urlString);
     dispatch_sync(dispatch_get_main_queue(), ^{
         JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {        
@@ -36,6 +47,7 @@ RCT_EXPORT_METHOD(call:(NSString *)urlString)
 
 RCT_EXPORT_METHOD(audioCall:(NSString *)urlString)
 {
+    JMCallKitProxy.enabled = [self canUseCallKit];
     RCTLogInfo(@"Load Audio only URL %@", urlString);
     dispatch_sync(dispatch_get_main_queue(), ^{
         JitsiMeetConferenceOptions *options = [JitsiMeetConferenceOptions fromBuilder:^(JitsiMeetConferenceOptionsBuilder *builder) {        
