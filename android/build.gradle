@@ -37,8 +37,7 @@ android {
 
 repositories {
   maven {
-      // url "https://github.com/jitsi/jitsi-maven-repository/raw/master/releases"
-      url("$rootDir/../node_modules/react-native-jitsi-meet/jitsi-sdk")
+      url "https://github.com/batuhansahan/jitsi-maven-repository/raw/android-sdk-2.4.0-fix3/releases"
   }
   google()
   mavenCentral()
@@ -46,11 +45,13 @@ repositories {
 }
 
 dependencies {
-    implementation ('org.jitsi.react:jitsi-meet-sdk:+') {
-      exclude group: 'com.facebook.react', module:'react-native-fast-image'
+    implementation ('org.jitsi.react:jitsi-meet-sdk:2.5.0') {
       exclude group: 'com.facebook.react', module:'react-native-vector-icons'
       exclude group: 'com.facebook.react', module:'react-native-webview'
-      exclude group: 'com.facebook.react', module:'react-native-background-timer'
+      exclude group: 'com.facebook.react', module:'react-native-youtube'  
+      exclude group: 'com.facebook.react', module:'react-native-webrtc'
+      exclude group: 'com.facebook.react', module:'react-native-community-async-storage'
+      exclude group: 'com.facebook.react', module:'react-native-linear-gradient'
       transitive = true
     }
 }
