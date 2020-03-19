@@ -37,7 +37,7 @@ android {
 
 repositories {
   maven {
-      url "https://github.com/batuhansahan/jitsi-maven-repository/raw/android-sdk-2.5.0-fix4/releases"
+      url "https://github.com/batuhansahan/jitsi-maven-repository/raw/android-sdk-2.5.0-fix5/releases"
   }
   google()
   mavenCentral()
