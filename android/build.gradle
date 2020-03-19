@@ -48,8 +48,7 @@ dependencies {
     implementation ('org.jitsi.react:jitsi-meet-sdk:2.5.0') {
       exclude group: 'com.facebook.react', module:'react-native-vector-icons'
       exclude group: 'com.facebook.react', module:'react-native-webview'
-      exclude group: 'com.facebook.react', module:'react-native-youtube'  
-      exclude group: 'com.facebook.react', module:'react-native-webrtc'
+      exclude group: 'com.facebook.react', module:'react-native-youtube'
       exclude group: 'com.facebook.react', module:'react-native-community-async-storage'
       exclude group: 'com.facebook.react', module:'react-native-linear-gradient'
       transitive = true
