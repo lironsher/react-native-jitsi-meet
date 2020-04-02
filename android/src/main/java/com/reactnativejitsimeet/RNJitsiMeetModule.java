@@ -108,4 +108,15 @@ public class RNJitsiMeetModule extends ReactContextBaseJavaModule {
             }
         });
     }
+    @ReactMethod
+    public void kill() {
+        UiThreadUtil.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                if (mJitsiMeetViewReference.getJitsiMeetView() != null) {
+                    mJitsiMeetViewReference.getJitsiMeetView().kill();
+                }
+            }
+        });
+    }
 }
