@@ -47,7 +47,7 @@ repositories {
 }
 
 dependencies {
-    implementation ('org.jitsi.react:jitsi-meet-sdk:+') {
+    implementation ('org.jitsi.react:jitsi-meet-sdk:2.8.11') {
       exclude group: 'com.facebook.react', module:'react-native-vector-icons'
       exclude group: 'com.facebook.react', module:'react-native-community-async-storage'
       exclude group: 'com.facebook.react', module:'react-native-linear-gradient'
